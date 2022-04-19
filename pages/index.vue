@@ -87,22 +87,22 @@ export default {
     fetchDelay: 1000,
     methods: {
         async getMovies() {
-            const data = axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=dba4b343072c9be517523581ef024172&language=en-US&page=1`);
-            const result = await data;
-            result.data.results.forEach((movie) => {
-                this.movies.push(movie);
-            });
+          const data = axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=dba4b343072c9be517523581ef024172&language=en-US&page=1`);
+          const result = await data;
+          result.data.results.forEach((movie) => {
+              this.movies.push(movie);
+          });
         },
         async searchMovies() {
-            const data = axios.get(`https://api.themoviedb.org/3/search/movie?api_key=dba4b343072c9be517523581ef024172&language=en-US&page=1&query=${this.searchInput}`);
-            const result = await data;
-            result.data.results.forEach((movie) => {
-                this.searchedMovies.push(movie);
-            });
+          const data = axios.get(`https://api.themoviedb.org/3/search/movie?api_key=dba4b343072c9be517523581ef024172&language=en-US&page=1&query=${this.searchInput}`);
+          const result = await data;
+          result.data.results.forEach((movie) => {
+              this.searchedMovies.push(movie);
+          });
         },
         clearSearch() {
-            this.searchInput = "";
-            this.searchedMovies = [];
+          this.searchInput = "";
+          this.searchedMovies = [];
         }
     },
     components: { Loading }
